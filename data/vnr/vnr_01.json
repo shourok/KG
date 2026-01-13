@@ -1,0 +1,14 @@
+{
+  "vnr_id": "VNR_01",
+  "service_type": "VR_ROOM",
+  "region_preference": "edge-zone",
+  "qos": { "latency_ms": 5, "bandwidth_mbps": 2000 },
+  "security": { "isolation": true, "encryption": "tls13" },
+  "vn_nodes": [
+    { "id": "v1", "cpu": 8, "mem_gb": 16 },
+    { "id": "v2", "cpu": 4, "mem_gb": 8 }
+  ],
+  "vn_links": [
+    { "src": "v1", "dst": "v2", "bandwidth_mbps": 2000, "latency_ms": 5 }
+  ]
+}
