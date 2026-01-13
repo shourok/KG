@@ -1,0 +1,20 @@
+experiment:
+  name: kg_vne_6g
+  runs: 10
+  random_seed: 42
+
+substrate:
+  min_cpu: 5
+  max_cpu: 50
+  min_bandwidth: 10
+  max_bandwidth: 100
+
+vnr:
+  min_nodes: 2
+  max_nodes: 50
+  arrival_rate: 0.5
+
+metrics:
+  - acceptance_ratio
+  - runtime
+  - resource_utilization
