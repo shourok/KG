@@ -1,13 +1,18 @@
-from typing import Dict, Any
+from dataclasses import dataclass
+from typing import Dict, List, Any
 
-class VNEBase:
-    def embed(self, vnr: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Returns:
-          {
-            "status": "accepted" | "rejected",
-            "mapping": { "vn_node_id": "substrate_server_id", ... },
-            "reason": "..."
-          }
-        """
-        raise NotImplementedError
+@dataclass
+class VNR:
+    id: str
+    nodes: List[Dict[str, Any]]
+    links: List[Dict[str, Any]]
+    constraints: Dict[str, Any]
+
+    @staticmethod
+    def from_dict(d: Dict[str, Any]) -> "VNR":
+        return VNR(
+            id=d["id"],
+            nodes=d["nodes"],
+            links=d["links"],
+            constraints=d.get("constraints", {})
+        )
